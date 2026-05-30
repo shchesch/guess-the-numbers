@@ -6,31 +6,26 @@
     <link rel="stylesheet" href="static/css/number.css">
     <script src="static/js/bootstrap.bundle.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
-    
-    <style>
-        body {
-            background-color: #000;
-            background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.2) 1px, transparent 0);
-            background-size: 20px 20px;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .custom-dot-pattern {
-            background-color: #000;
-            background-image: radial-gradient(circle at 1px 1px, rgba(59,130,246,0.2) 1px, transparent 0);
-            background-size: 20px 20px;
-        }
-    </style>
+    <script src="static/js/number.js"></script>
 </head>
 <body>
-    <div class="fixed-square"></div>
-    <div style="text-align: center; margin-top: -250px;">
-        <button style="margin-left: -50px;" type="button" class="btn btn-outline-light">Угадать</button>
+    <div class="container">
+        <h1 class="game-title">Игра: угадай число</h1>
+        
+        <div class="fixed-square">
+            <p class="range-text">Загадано число в диапазоне от 1 до 100</p>
+            <p class="range-2-text">У вас есть n попыток его угадать. Удачи!</p>
+            
+            <input class="number-input" type="number" min="1" max="100" placeholder="Введите число...">
+            
+            <div class="button-group">
+                <button type="button" class="but btn btn-outline-light">Угадать</button>
+                <button type="button" class="but btn btn-outline-light">Начать заново</button>
+            </div>
+            
+            <p class="hint-text">Загадано число "больше/меньше" "63"</p>
+            <p class="history-text">История: </p>
+        </div>
     </div>
-    
-    <p class="lipton" style="margin-top: -320px; margin-left: 650px;"><strong>Угадай число от 1 до 100</strong></p>
-    
 </body>
 </html>
