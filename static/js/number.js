@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const rangeText = document.querySelector('.range-text')
 
     if (rangeText) {
-        rangeText.textContent = `Задано число в диапозоне от ${MIN_NUMBER} до ${MAX_NUMBER}`
+        rangeText.textContent = `Загадано число в диапозоне от ${MIN_NUMBER} до ${MAX_NUMBER}`
     }
     
     // ========== 2. Переменные игры (состояние) ==========
