@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const MIN_NUMBER = 0;
-=======
-const MIN_NUMBER = 40;
->>>>>>> 53cb691a84cfd2213f98d3a4e576738cf8b915da
 const MAX_NUMBER = 100;
 
 document.addEventListener('DOMContentLoaded', function() {
