@@ -1,3 +1,6 @@
+const MIN_NUMBER = 40;
+const MAX_NUMBER = 100;
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========== тут находим все элементы йоу ==========
@@ -7,19 +10,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const numberInput = document.querySelector('.number-input');        // Поле ввода числа
     const hintText = document.querySelector('.hint-text');              // Текст подсказки (больше/меньше)
     const historyText = document.querySelector('.history-text');        // история
-    const attemptsText = document.querySelector('.range-2-text');       // кол-во попыток
+    const attemptsText = document.querySelector('.range-2-text');       // кол-во попытокTe
+    const rangeText = document.querySelector('.range-text')
+
+    if (rangeText) {
+        rangeText.textContent = `Задано число в диапозоне от ${MIN_NUMBER} до ${MAX_NUMBER}`
+    }
     
     // ========== 2. Переменные игры (состояние) ==========
+
+    function calculateMaxAttempts() {
+        const rangeSize = MAX_NUMBER - MIN_NUMBER + 1;
+        return Math.ceil(Math.log2(rangeSize));
+    }
+
+    const maxAttempts = calculateMaxAttempts();
     let secretNumber;           // Загаданное число (будет задано при старте)
     let attemptsLeft;           // Оставшиеся попытки
-    const maxAttempts = 5;      // Всего попыток (изначально 5)
     let history = [];           // Массив для хранения истории попыток
     let gameActive = true;      // Активна ли игра (не закончена победой/поражением)
     
     // ========== 3. Функция запуска/сброса игры ==========
     // простая математика 0-0
     function startNewGame() {
-        secretNumber = Math.floor(Math.random() * 100) + 1;
+        secretNumber = Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1)) + MIN_NUMBER;
         
         // сброс попыток
         attemptsLeft = maxAttempts;
@@ -89,11 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        if (guess < 1 || guess > 100) {
-            hintText.innerHTML = '<strong> Число должно быть от 1 до 100!</strong>';
+        if (guess < MIN_NUMBER || guess > MAX_NUMBER) {
+            hintText.innerHTML = `<strong> Число должно быть от ${MIN_NUMBER} до ${MAX_NUMBER}!</strong>`;
             numberInput.value = '';
             return;
         }
+        
         
         // ========== Уменьшаем количество попыток ==========
         attemptsLeft--;
